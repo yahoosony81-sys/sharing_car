@@ -10,8 +10,8 @@ export function HeroSection() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="/BACKGROUND.jpg"
-            alt="제주 공항과 한라산이 보이는 풍경"
+            src="/happy-korean-family-smiling-with-rental-car-at-vac.jpg"
+            alt="제주 공항에서 차량을 공유받고 기뻐하는 가족들"
             className="w-full h-full object-cover brightness-90"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-primary/20 via-transparent to-background/80" />
