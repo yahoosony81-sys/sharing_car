@@ -34,7 +34,7 @@ export function HeroSection() {
                 size="lg"
                 className="bg-[#FEE500] text-[#000000] hover:bg-[#FEE500]/90 text-lg px-8 py-6 rounded-full shadow-xl font-bold"
               >
-                카카오로 3초만에 시작하기
+                카카오톡 3초 로그인
               </Button>
             </SignInButton>
           </SignedOut>
