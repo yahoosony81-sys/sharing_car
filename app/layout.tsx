@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { Dancing_Script } from "next/font/google"
 import { Chatbot } from "@/components/chatbot"
+import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
 
 const dancingScript = Dancing_Script({
@@ -101,12 +102,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ko">
-      <body className={`font-sans antialiased ${dancingScript.variable}`}>
-        {children}
-        <Analytics />
-        <Chatbot />
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="ko">
+        <body className={`font-sans antialiased ${dancingScript.variable}`}>
+          {children}
+          <Analytics />
+          <Chatbot />
+        </body>
+      </html>
+    </ClerkProvider>
   )
 }

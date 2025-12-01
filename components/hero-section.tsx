@@ -1,12 +1,9 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
-import { WaitlistModal } from "./waitlist-modal"
+import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs"
 
 export function HeroSection() {
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
   return (
     <>
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -30,13 +27,27 @@ export function HeroSection() {
           <p className="text-xl md:text-2xl text-white/95 mb-8 max-w-2xl mx-auto text-pretty drop-shadow-md">
             휴가지에서 만나는 가장 합리적인 이동 솔루션, 트립카셰어
           </p>
-          <Button
-            size="lg"
-            className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 rounded-full shadow-xl"
-            onClick={() => setIsModalOpen(true)}
-          >
-            무료 요약하기
-          </Button>
+          
+          <SignedOut>
+            <SignInButton mode="modal">
+              <Button
+                size="lg"
+                className="bg-[#FEE500] text-[#000000] hover:bg-[#FEE500]/90 text-lg px-8 py-6 rounded-full shadow-xl font-bold"
+              >
+                카카오로 3초만에 시작하기
+              </Button>
+            </SignInButton>
+          </SignedOut>
+
+          <SignedIn>
+            <Button
+              size="lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 rounded-full shadow-xl"
+              onClick={() => alert("이미 로그인 상태입니다.")}
+            >
+              서비스 이용하기
+            </Button>
+          </SignedIn>
         </div>
 
         {/* Scroll Indicator */}
@@ -46,8 +57,6 @@ export function HeroSection() {
           </div>
         </div>
       </section>
-
-      <WaitlistModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </>
   )
 }
