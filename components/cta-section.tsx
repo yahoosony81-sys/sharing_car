@@ -24,7 +24,7 @@ export function CTASection() {
             className="bg-accent text-accent-foreground hover:bg-accent/90 text-lg px-8 py-6 rounded-full shadow-xl"
             onClick={() => setIsModalOpen(true)}
           >
-            무료 요약하기
+            무료 예약하기
           </Button>
         </div>
       </section>
